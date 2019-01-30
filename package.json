@@ -22,7 +22,9 @@
 	"scripts": {
 		"build": "babel src --out-dir lib",
 		"format": "./index.js format",
-		"watch": "./index.js watch"
+		"watch": "./index.js watch",
+		"test": "jest",
+    "test:watch": "jest --watch --runInBand --bail"
 	},
 	"dependencies": {
 		"@babel/polyfill": "^7.2.5",
