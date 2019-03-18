@@ -8,18 +8,18 @@
 		"extends": "mcclowes"
 	},
 	"babel": {
-    "presets": [
-      [
-        "@babel/preset-env",
-        {
-          "modules": "commonjs",
-          "targets": {
-            "node": "current"
-          }
-        }
-      ]
-    ]
-  },
+		"presets": [
+			[
+				"@babel/preset-env",
+				{
+					"modules": "commonjs",
+					"targets": {
+						"node": "current"
+					}
+				}
+			]
+		]
+	},
 	"bin": {
 		"mcclowes-scripts": "./index.js"
 	},
