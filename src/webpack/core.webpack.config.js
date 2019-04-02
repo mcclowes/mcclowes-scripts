@@ -62,7 +62,7 @@ export default {
 					loader: require.resolve("babel-loader"),
 					options: {
 						presets: [ "mcclowes", ],
-						forceEnv: "production",
+						envName: "production",
 					},
 				},
 			},
