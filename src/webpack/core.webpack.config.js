@@ -11,32 +11,29 @@ import SimpleProgressWebpackPlugin from "simple-progress-webpack-plugin";
 const appDirectory = fs.realpathSync(process.cwd());
 const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
 
-export const addLoader = loader =>
-	R.over(R.lensPath([ "module", "rules", ]), R.append(loader));
+export const addLoader = ( loader ) => { return R.over(R.lensPath([ "module", "rules", ]), R.append(loader)); }
 
-export const addPlugin = plugin =>
-	R.over(R.lensProp("plugins"), R.append(plugin));
+export const addPlugin = ( plugin ) => { return R.over(R.lensProp("plugins"), R.append(plugin)); }
+
+export const addConfig = (key, config) => { return R.over(R.lensProp(key), R.append(config)); }
 
 export const packageJSON = require(resolveApp("package.json"));
 
-export default {
-	entry: {
+const config = {
+	'entry': {
 		app: "./src/index.js",
 		vendor: Object.keys(packageJSON.dependencies) || [],
 	},
-
-	output: {
+	'output': {
 		filename: "static/js/[name].[chunkhash].bundle.js",
 		path: resolveApp("build/"),
 		publicPath: "/",
 	},
-
-	resolve: {
+	'resolve': {
 		modules: [ "node_modules", resolveApp("node_modules"), resolveApp("."), ],
 	},
-
-	module: {
-		rules: [
+	'module': {
+		'rules': [
 			{
 				test: /\.js$/,
 				loader: "shebang-loader",
@@ -114,8 +111,7 @@ export default {
 			},
 		],
 	},
-
-	plugins: [
+	'plugins': [
 		// Generates an `index.html` file with the <script> injected.
 		new HtmlWebpackPlugin({
 			inject: true,
@@ -153,3 +149,5 @@ export default {
 		new SimpleProgressWebpackPlugin({ format: "compact", }),
 	],
 };
+
+export default config
