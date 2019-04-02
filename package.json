@@ -1,6 +1,6 @@
 {
 	"name": "mcclowes-scripts",
-	"version": "0.10.1",
+	"version": "0.10.2",
 	"main": "index.js",
 	"author": "Max Clayton Clowes <maxcc@me.com>",
 	"license": "MIT",
