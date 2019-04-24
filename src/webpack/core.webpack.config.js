@@ -38,19 +38,19 @@ const config = {
 				test: /\.js$/,
 				loader: "shebang-loader",
 			},
-			{
-				test: /\.js$/,
-				enforce: "pre",
-				include: resolveApp("src"),
-				use: [
-					{
-						loader: require.resolve("eslint-loader"),
-						options: {
-							extends: [ require.resolve("eslint-config-mcclowes"), ],
-						},
-					},
-				],
-			},
+			//{
+				//test: /\.js$/,
+				//enforce: "pre",
+				//include: resolveApp("src"),
+				//use: [
+					//{
+						//loader: require.resolve("eslint-loader"),
+						//options: {
+							//extends: [ require.resolve("eslint-config-mcclowes"), ],
+						//},
+					//},
+				//],
+			//},
 
 			{
 				test: /\.js$/,
